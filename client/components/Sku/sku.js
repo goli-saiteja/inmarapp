@@ -165,9 +165,6 @@ class SKU extends Component {
           <div className="formgroup">
             <button className="btn primary md" onClick={this.getSKUData}>Search</button>
           </div>
-          <div className="formgroup">
-            <button className="btn primary md" onClick={this.addData}>Add</button>
-          </div>
         </div>
         <div className="grid">
           <div className="table-header">

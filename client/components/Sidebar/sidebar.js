@@ -16,8 +16,6 @@ class Sidebar extends Component {
               "authorised": [
                 {"name": "SKU", "url": "/sku"},
                 {"name": "Graph View","url": "/graph-view"},
-                {"name": "Users", "url": "/users"},
-                {"name": "Upload Data","url": "/upload-data"}
               ]
             },
             username: '',
@@ -53,17 +51,14 @@ class Sidebar extends Component {
         return(
             <div className="sidebar-container">
               <div className="sidebar-brand">
-                 Integra
+                 INMAR
               </div>
               {this.state.isLoggedIn &&
                 <div className="user-profile-container">
                     <h6 className="welcome-text">Welcome</h6>
                     <h4 className="username-text">{this.state.username}</h4>
                     <div>
-                      <button className="btn primary sm m-r-5">
-                        Edit Profile
-                      </button>
-                      <button className="btn sm m-l-5" onClick={this.onLogout}>
+                      <button className="btn sm" onClick={this.onLogout}>
                         Logout
                       </button>
                     </div>
