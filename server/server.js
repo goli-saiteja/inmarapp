@@ -287,7 +287,6 @@ var is_model_available = function (req) {
 var get_children = function(skuobjects, pattern) {
   var _path = new RegExp(pattern);
   return skuobjects.filter(function(val, key) {
-		console.log(val);
     if(val.path.match(_path)) {
       return true;
     }
@@ -299,12 +298,13 @@ var genTreeData = function (dataarray,obj,pattern) {
 		current_children.forEach(function(item, index){
 			 var temp_obj = {};
 			 temp_obj['name'] = item.name;
+			 // temp_obj['_collapsed'] = true;
 			 temp_obj['children'] = [];
-			 console.log(obj);
+
 			 obj['children'].push(temp_obj);
-			 console.log(obj);
-			 var _newpattern = pattern.replace('\\w+',item.name + '\\,\\w+');
-			 genTreeData(dataarray,obj.children[index],_newpattern)
+			 //console.log(obj);
+			 var _newpattern = pattern.replace('[\\w\\d\\s]+',item.name + '\\,[\\w\\d\\s]+');
+			 genTreeData(dataarray,obj.children[index],_newpattern);
 		})
 
 }
@@ -312,8 +312,8 @@ apiRoutes.use('/gettreedata', function(req, res, next) {
 	ms.items.find({}, function (err, items) {
 			if(items.length > 0) {
 					var myobj = {"children":[]};
-					genTreeData(items,myobj, '^\\,\\w+\\,$');
-					console.log(myobj);
+					genTreeData(items,myobj, '^\\,[\\w\\d\\s]+\\,$');
+					//console.log(myobj);
 					res.send(200, myobj);
 			}
 	})

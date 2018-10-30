@@ -2,38 +2,16 @@ import React from 'react';
 import { Tree, treeUtil } from 'react-d3-tree';
 import axios from 'axios';
 import {NotificationManager} from 'react-notifications';
-var myTreeData = [
-  {
-    name: 'Top Level',
-    attributes: {
-      keyA: 'val A',
-      keyB: 'val B',
-      keyC: 'val C',
-    },
-    children: [
-      {
-        name: 'Level 2: A',
-        children: [
-          {name: 'sai'},
-          {name: 'teja'}
-        ]
-
-      },
-      {
-        name: 'Level 2: B',
-      },
-    ],
-  },
-];
+import './graph.scss';
 
 class Graph extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {data: undefined,};
-
+    this.state = {data: undefined, zoom: true, translate:{x:500, y:200}};
   }
   componentWillMount() {
-    axios.post('api/gettreedata', {
+
+    axios.get('api/gettreedata', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -43,17 +21,23 @@ class Graph extends React.Component {
     .then(function (data) {
       var newdata = data.data.children;
       this.setState({ data: newdata })
-      //this.render();
+      this.render();
     }.bind(this))
     .catch(function (error) {
       console.log(error);
     }.bind(this));
   }
+  componentDidMount() {
+    var treeele = document.getElementById('treeWrapper');
+    // debugger;treeele.offsetHeight
+    this.setState({ translate: {x: treeele.offsetHeight/2, y: treeele.offsetWidth/2}})
+    this.render();
+  }
   render() {
     return (
-      <div id="treeWrapper" style={{width: '100em', height: '100em'}}>
+      <div id="treeWrapper" style={{width: '100em', height: '50em'}}  >
       {this.state.data &&(
-        <Tree data={this.state.data} />
+        <Tree data={this.state.data} translate={{x:100, y:400}} initialDepth={2}  scaleExtent={{min: 0.1, max: 0.5}}/>
       )}
       </div>
     );

@@ -1,0 +1,27 @@
+#treeWrapper {
+  position: absolute;
+}
+
+.nodeNameBase {
+  stroke-width: 0;
+}
+.nodeBase {
+    cursor: pointer;
+    fill: #777;
+    stroke: #757577;
+    stroke-width: 2;
+}
+.linkBase {
+    fill: none;
+    stroke: #757577;
+}
+.leafNodeBase {
+  cursor: pointer;
+  fill: transparent;
+  stroke: #757577;
+  stroke-width: 1px;
+}
+.nodeNameBase {
+    stroke-width: 0;
+    font-size: 20PX;
+}
