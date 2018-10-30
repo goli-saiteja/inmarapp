@@ -1,0 +1,42 @@
+@import '../../styles/colors.scss';
+.sidebar-container {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  width: 300px;
+  border-right: 1px solid $border-color;
+  .sidebar-brand {
+    height: 60px;
+    color: #757577;
+    padding: 15px 20px;
+    font-family: 'SF UI Display Medium';
+    font-size: 24px;
+    border-bottom: 1px solid $border-color;
+    text-align: center;
+  }
+  .user-profile-container {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid $border-color;
+    .welcome-text {
+      color: $primary;
+    }
+    .username-text {
+      color: $primary;
+      font-size: 22px;
+    }
+  }
+  .nav-block {
+    .navitem {
+      .navlink {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid $border-color;
+        transition: padding 0.3s;
+        &:hover {
+          padding-left: 25px;
+        }
+      }
+    }
+  }
+}

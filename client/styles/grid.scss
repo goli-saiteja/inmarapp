@@ -1,0 +1,133 @@
+/* --------Clearfix-------- */
+.clearfix:after,.row:after,.container:after{
+    content:' ';
+    display: table;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;
+    width:0;
+    clear:both;
+}
+
+/* ---------Grid---------- */
+.container, .container-fluid{
+    width: 100%;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container{
+	padding-right: 10px;
+    padding-left: 10px;
+}
+.row {
+    margin:0;
+    padding: 10px 0px;
+}
+[class*='c-'] {
+	display: block;
+	float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+@for $i from 0 through 12 {
+    .c-#{$i} { width : $i * 8.3%;}
+    .c-o-#{$i} { margin-left : $i * 8.3%;}
+}
+
+@media only screen and (min-width: 1200px) {
+	[class^='c-l'] {
+		max-width: 90px;
+	}
+	.container {
+		max-width: 1170px;
+	}
+	.hide-l{
+		display: none !important;
+	}
+    @for $i from 0 through 12 {
+        .c-l-#{$i} { width : $i * 8.3%;}
+        .c-l-o-#{$i} { margin-left : $i * 8.3%;}
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+	[class^='c-m'] {
+		max-width: 78px;
+	}
+	.sub-list{
+		width: 800% !important;
+	}
+	.hide-m{
+		display: none !important;
+	}
+	.fs-m{
+		font-size: 0.8em;
+	}
+	.container {
+		max-width: 970px;
+	}
+    @for $i from 0 through 12 {
+        .c-m-#{$i} { width : $i * 8.3%;}
+        .c-m-o-#{$i} { margin-left : $i * 8.3%;}
+    }
+}
+
+@media only screen and (max-width: 991px) {
+	[class^='c-s'] {
+		max-width: 60px;
+	}
+	.hide-s{
+		display: none !important;
+	}
+	.container {
+		max-width: 750px;
+	}
+	.fs-s{
+		font-size: 0.7em;
+	}
+    @for $i from 0 through 12 {
+        .c-s-#{$i} { width : $i * 8.3%;}
+        .c-s-o-#{$i} { margin-left : $i * 8.3%;}
+    }
+}
+
+@media only screen and (max-width: 767px) {
+	[class^='c-x'] {
+		max-width: auto;
+	}
+	.hide-x{
+		display: none !important;
+	}
+	.container {
+		max-width: auto;
+	}
+	.fs-x{
+		font-size: 0.6em;
+	}
+    @for $i from 0 through 12 {
+        .c-x-#{$i} { width : $i * 8.3%;}
+        .c-x-o-#{$i} { margin-left : $i * 8.3%;}
+    }
+}
+
+@media only screen and (max-width: 600px) {
+	[class^='c-xs'] {
+		max-width: auto;
+	}
+	.hide-xs{
+		display: none !important;
+	}
+	.container {
+		max-width: auto;
+	}
+	.fs-xs{
+		font-size: 0.6em;
+	}
+    @for $i from 0 through 12 {
+        .c-xs-#{$i} { width : $i * 8.3%;}
+        .c-xs-o-#{$i} { margin-left : $i * 8.3%;}
+    }
+}

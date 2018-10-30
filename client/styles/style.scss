@@ -1,0 +1,61 @@
+@import 'fonts';
+@import 'font-awesome/fontawesome.scss';
+@import "font-awesome/fa-regular.scss";
+@import "font-awesome/fa-solid.scss";
+@import "font-awesome/fa-brands.scss";
+@import 'reset.scss';
+@import 'grid.scss';
+@import 'margins-paddings.scss';
+@import 'colors.scss';
+
+body {
+  font-family: 'SF UI Display light';
+  font-style: normal;
+  font-weight: 300;
+}
+h4,h5,h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+a {
+  color: $primary;
+  text-decoration: none;
+}
+button {
+  &.btn {
+    color: $btn-primary;
+    background-color: white;
+    border: 1px solid $btn-primary;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    &:focus {
+      outline:0;
+    }
+  }
+
+  &.btn.primary {
+    color: white;
+    background-color: $btn-primary;
+    border: 1px solid $btn-primary;
+  }
+  &.btn.md {
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+  &.btn.sm {
+    padding: 5px 14px;
+    font-size: 12px;
+  }
+}
+.button-group {
+  .btn:first-child {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .btn:last-child {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}

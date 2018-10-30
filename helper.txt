@@ -1,0 +1,44 @@
+As we run "npm" in terminal it can check through commands defined in the package.json
+i.e. in the "scripts"
+
+"scripts": {
+  "server": "nodemon --watch server --exec babel-node -- server/server.js"
+}
+
+1) The above code represents that if we run "npm run server" then terminal will look for the command called server in the
+package.json -> scripts -> server and transpile the "server.js" and then node server starts running
+
+
+server.js
+---------
+Server file is used for serving API calls as well as to serve React app using webpack.config.dev.js file
+
+1)app.use(webpackHotMiddleware(compiler)); this bundles all the client ".js" files and make
+it available "bundle.js" in the server/index.html
+
+2)when we go to the path http://localhost:3000/ it matches the url '/*' in the server.js and serves server/index.html
+
+3)As index.html import bundle.js which was created in bundle.js (has react js code bundled into it)
+which was generated in step 1) will then control the index.html file
+
+Working flow
+------------
+                                            -> webpack.config.dev.js -> client/index.js ->bundle.js   (step 1)
+npm run server -> package.json -> server.js
+                                            -> index.html  (step 2)
+
+
+index.js
+--------
+1) index.js loads <App></App> component to the <div id="app" class="container-fluid"></div>
+inside server.html (through bundle.js)
+
+App.js
+------
+1) this will get all the header, footer, route components and load route components according to the url we go.
+2) import '../styles/style.scss'; this will include style.scss.
+
+Note: Initially when we go to http://localhost:3000/ it matches to the url '/'
+so inside <Switch> compoent doesnt match to any <Route/> so <Redirect exact from="/" to="/home"/>
+will make the page redirect from http://localhost:3000/ to http://localhost:3000/home
+which will load home component in the index.html.

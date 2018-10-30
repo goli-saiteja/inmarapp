@@ -1,0 +1,16 @@
+@for $i from 0 through 20 {
+  .m-#{$i} { margin : $i * 1px; }
+  .m-t-#{$i} { margin-top : $i * 1px; }
+  .m-r-#{$i} { margin-right : $i * 1px; }
+  .m-b-#{$i} { margin-bottom : $i * 1px; }
+  .m-l-#{$i} { margin-left : $i * 1px; }
+  .m-tb-#{$i} { margin-top : $i * 1px; margin-bottom : $i * 1px; }
+  .m-rl-#{$i} { margin-right : $i * 1px; margin-left : $i * 1px; }
+  .p-#{$i} { padding : $i * 1px; }
+  .p-t-#{$i} { padding-top : $i * 1px; }
+  .p-r-#{$i} { padding-right : $i * 1px; }
+  .p-b-#{$i} { padding-bottom : $i * 1px; }
+  .p-l-#{$i} { padding-left : $i * 1px; }
+  .p-tb-#{$i} { padding-top : $i * 1px; padding-bottom : $i * 1px; }
+  .p-rl-#{$i} { padding-right : $i * 1px; padding-left : $i * 1px; }
+}

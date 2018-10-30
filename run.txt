@@ -1,0 +1,7 @@
+1)npm install
+2)npm run server
+
+
+The server will be running on
+-----------------------------
+localhost:3000
