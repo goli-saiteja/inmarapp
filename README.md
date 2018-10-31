@@ -3,7 +3,7 @@
 Stack used to develop this app:
 
 * React- A JavaScript library for building user interfaces
-* NodeJS - awesome web-based text editor
+* NodeJS - an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications.
 * Express- fast node.js network app framework
 * MongoDB - a free and open-source cross-platform document-oriented database program.
 * Mongoose- elegant mongodb object modeling for node.js
